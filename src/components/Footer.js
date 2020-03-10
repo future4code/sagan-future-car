@@ -29,7 +29,14 @@ color: white;
 `
 const ContactWrapper = styled.div`
 margin-right: 10px;
+display:flex;
+align-items:center;
 `
+const SocialWrapper = styled.div`
+display:flex;
+align-items:center;
+`
+
 export default function Footer() {
 	return (
 		<Footers>
@@ -38,11 +45,11 @@ export default function Footer() {
 				Somos a melhor empresa no pós venda de carros segundo a revista Carros.SA
 			</TextFooter>
 
-			<div>
+			<SocialWrapper>
 				<span>Redes sociais:</span>
 				<IconSocialNetwork src={require('../img/iconFace.svg')} />
 				<IconSocialNetwork src={require('../img/iconInstagram.svg')} />
-			</div>
+			</SocialWrapper>
 			<ContactWrapper>
 				<Phone />
 				<span>

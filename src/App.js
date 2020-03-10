@@ -5,8 +5,7 @@ import { MuiThemeProvider, createGenerateClassName, jssPreset } from '@material-
 import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { AppContainer } from './components/AppContainer'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import HomePage from './components/HomePage'
 
 const generateClassName = createGenerateClassName()
 const jss = create({
@@ -17,17 +16,42 @@ const jss = create({
 
 const theme = createMuiTheme()
 
-function App() {
-	return (
-		<JssProvider jss={jss} generateClassName={generateClassName}>
-			<MuiThemeProvider theme={theme}>
-				<Header />
-				<CssBaseline />
-				<AppContainer />
-				<Footer />
-			</MuiThemeProvider>			
-		</JssProvider>
-	)
+class App extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			pagRender: 'home'
+		}
+	}
+	hendleRenderPage = () => {
+		const pag = this.state.pagRender
+		switch (pag) {
+			case 'home':
+				return <HomePage />
+			case 'sellCar':
+				return ''// Página de venda de carro
+			case 'buyCar':
+				return '' //Página de compra de carro
+		}
+	}
+	hendleChangePage = (e) =>{ 
+		const newPag = e.target.value //verificar se ta pegando o valor da página 
+		this.setState({
+			pagRender : newPag
+		})
+		this.hendleRenderPage()
+	}
+	render() {
+		return (
+			<JssProvider jss={jss} generateClassName={generateClassName}>
+				<MuiThemeProvider theme={theme}>
+					{this.hendleRenderPage()}
+					<CssBaseline />
+					<AppContainer />
+				</MuiThemeProvider>
+			</JssProvider>
+		)
+	}
 }
 
 export default App
