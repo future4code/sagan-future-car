@@ -25,8 +25,7 @@ function App() {
 				<CssBaseline />
 				<AppContainer />
 				<Footer />
-			</MuiThemeProvider>
-			
+			</MuiThemeProvider>			
 		</JssProvider>
 	)
 }
