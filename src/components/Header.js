@@ -33,15 +33,17 @@ const temaHeader = createMuiTheme({
 	}
 })
 
-export default function Header() {
+export default function Header(props) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
 
 	const handleClick = event => {
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleClose = () => {
+	const handleClose = (e) => {
+		const idPag = e.target.id
 		setAnchorEl(null);
+		props.hendleChangePage(idPag)
 	};
 	return (
 		<MainHeader>
@@ -58,9 +60,9 @@ export default function Header() {
 					open={Boolean(anchorEl)}
 					onClose={handleClose}
 				>
-					<MenuItem onClick={handleClose}>Home</MenuItem>
-					<MenuItem onClick={handleClose}>Comprar Veículo</MenuItem>
-					<MenuItem onClick={handleClose}>Vender Veículo</MenuItem>
+					<MenuItem id = 'home' onClick={handleClose}>Home</MenuItem>
+					<MenuItem id = 'buyCar' onClick={handleClose}>Comprar Veículo</MenuItem>
+					<MenuItem id = 'sellCar' onClick={handleClose}>Vender Veículo</MenuItem>
 				</Menu>
 			</MuiThemeProvider>
 		</MainHeader>
