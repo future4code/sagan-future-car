@@ -25,26 +25,26 @@ class App extends React.Component {
 			pagRender: 'home'
 		}
 	}
-	hendleRenderPage = () => {
+	handleRenderPage = () => {
 		const pag = this.state.pagRender
-		console.log(pag)
+		
 		switch (pag) {
 			case 'home':
 				return <HomePage
-				hendleChangePage = {this.hendleChangePage}
+				handleChangePage = {this.handleChangePage}
 				 />
 			case 'sellCar':
 				return <PageSalerRegister
-				hendleChangePage = {this.hendleChangePage}
+				handleChangePage = {this.handleChangePage}
 				 />
 			case 'buyCar':
 				return( <BuyACar
-					hendleChangePage = {this.hendleChangePage}
+					handleChangePage = {this.handleChangePage}
 				 />)
 		}
 	}
-	hendleChangePage = (idPag) =>{ 
-		const newPag = idPag //verificar se ta pegando o valor da página 
+	handleChangePage = (idPag) =>{ 
+		const newPag = idPag
 		this.setState({
 			pagRender : newPag
 		})
@@ -54,7 +54,7 @@ class App extends React.Component {
 		return (
 			<JssProvider jss={jss} generateClassName={generateClassName}>
 				<MuiThemeProvider theme={theme}>
-					{this.hendleRenderPage()}
+					{this.handleRenderPage()}
 					<CssBaseline />
 					<AppContainer />
 				</MuiThemeProvider>
