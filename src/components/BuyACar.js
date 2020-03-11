@@ -14,7 +14,7 @@ export default class BuyACar extends Component{
 		return(
 			<div>
 				<Header
-				 hendleChangePage = {this.props.hendleChangePage}/>
+				 handleChangePage = {this.props.handleChangePage}/>
 				<Footer />
 			</div>
 		)

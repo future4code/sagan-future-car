@@ -43,8 +43,9 @@ export default function Header(props) {
 	const handleClose = (e) => {
 		const idPag = e.target.id
 		setAnchorEl(null);
-		props.hendleChangePage(idPag)
+		props.handleChangePage(idPag)
 	};
+	
 	return (
 		<MainHeader>
 			<Logo src={require('../img/futurecar.png')} alt="logo-da-marca" />
