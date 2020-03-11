@@ -6,6 +6,8 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { AppContainer } from './components/AppContainer'
 import HomePage from './components/HomePage'
+import PageSalerRegister from './components/PageSalerRegister'
+import BuyACar from './components/BuyACar'
 
 const generateClassName = createGenerateClassName()
 const jss = create({
@@ -32,12 +34,12 @@ class App extends React.Component {
 				hendleChangePage = {this.hendleChangePage}
 				 />
 			case 'sellCar':
-				return <HomePage
+				return <PageSalerRegister
 				hendleChangePage = {this.hendleChangePage}
 				 />
 			case 'buyCar':
-				return( <HomePage
-				hendleChangePage = {this.hendleChangePage}
+				return( <BuyACar
+					hendleChangePage = {this.hendleChangePage}
 				 />)
 		}
 	}

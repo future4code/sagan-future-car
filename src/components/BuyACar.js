@@ -13,7 +13,8 @@ export default class BuyACar extends Component{
 	render(){
 		return(
 			<div>
-				<Header />
+				<Header
+				 hendleChangePage = {this.props.hendleChangePage}/>
 				<Footer />
 			</div>
 		)
