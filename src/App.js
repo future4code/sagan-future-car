@@ -25,21 +25,28 @@ class App extends React.Component {
 	}
 	hendleRenderPage = () => {
 		const pag = this.state.pagRender
+		console.log(pag)
 		switch (pag) {
 			case 'home':
-				return <HomePage />
+				return <HomePage
+				hendleChangePage = {this.hendleChangePage}
+				 />
 			case 'sellCar':
-				return ''// Página de venda de carro
+				return <HomePage
+				hendleChangePage = {this.hendleChangePage}
+				 />
 			case 'buyCar':
-				return '' //Página de compra de carro
+				return( <HomePage
+				hendleChangePage = {this.hendleChangePage}
+				 />)
 		}
 	}
-	hendleChangePage = (e) =>{ 
-		const newPag = e.target.value //verificar se ta pegando o valor da página 
+	hendleChangePage = (idPag) =>{ 
+		const newPag = idPag //verificar se ta pegando o valor da página 
 		this.setState({
 			pagRender : newPag
 		})
-		this.hendleRenderPage()
+		
 	}
 	render() {
 		return (

@@ -27,10 +27,12 @@ height: 70%;
 text-align: center;
 `
 
-const HomePage = () => {
+const HomePage = (props) => {
 	return (
 		<WrapperHome>
-			<Header />
+			<Header
+			hendleChangePage = {props.hendleChangePage}
+			 />
 			<WrapperNavegation>
 				<Figure>
 					<ImgPag 
