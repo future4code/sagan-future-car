@@ -18,6 +18,7 @@ const Logo = styled.img`
 	height:9vh;
 	width:8vw;
 	margin-left:10px;
+	border-radius:50%;
 `
 
 const TituloHeader = styled.h2`

@@ -1,9 +1,7 @@
 import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
 import styled from 'styled-components'
 
-import { makeStyles } from '@material-ui/core/styles';
+
 import Button from '@material-ui/core/Button';
 
 const WrapperHome = styled.div`
@@ -40,9 +38,6 @@ const HomePage = (props) => {
 
 	return (
 		<WrapperHome>
-			<Header
-			handleChangePage = {props.handleChangePage}
-			 />
 			<WrapperNavegation>
 				<Figure>
 					<ImgPag 
@@ -61,8 +56,7 @@ const HomePage = (props) => {
         					Venda seu carro
      					</Button>
 				</Figure>
-			</WrapperNavegation>
-			<Footer />
+			</WrapperNavegation>			
 		</WrapperHome>
 	)
 }

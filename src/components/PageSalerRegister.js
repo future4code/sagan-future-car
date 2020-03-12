@@ -3,15 +3,15 @@ import styled from "styled-components";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
-import Header from "./Header";
-import Footer from "./Footer";
 
 const myTheme = createMuiTheme({
-	primary: {
-		main: "#0EAD83"
-	},
-	secondary: {
-		main: "#CC5433"
+	palette: {
+		primary: {
+			main: "#0EAD83"
+		},
+		secondary: {
+			main: "#CC5433"
+		}
 	}
 });
 
@@ -19,7 +19,7 @@ const ContainerRegister = styled.div`
   background-color: #FAFAFA;
   display: flex;
   justify-content:center;
-  margin-top:5rem;
+  margin-top:2rem;
   
 `;
 
@@ -34,14 +34,14 @@ const DivPai = styled.div`
   flex-direction: column;
   justify-content: center;      
   padding: 15px;
-  width:450px;
-  height:450px; 
+  width:400px;
+  height:400px; 
 `;
 
 const ContainerButtons = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-top:3rem;
+  margin-top:2rem;
 `;
 
 class PageSalerRegister extends React.Component {
@@ -116,7 +116,6 @@ class PageSalerRegister extends React.Component {
 		return (
 			<div>
 				<div>
-					<Header handleChangePage = {this.props.handleChangePage}/>
 					<ContainerRegister>
 						<DivPai>
 							<Titulo>Cadastre o seu veículo</Titulo>
@@ -155,8 +154,7 @@ class PageSalerRegister extends React.Component {
 							{/* <p>Cadastro do vendedor</p>
             <input placeholder="Nome" /> */}
 						</DivPai>
-					</ContainerRegister>
-					<Footer />
+					</ContainerRegister>					
 				</div>
 				<MuiThemeProvider theme={myTheme}>
 					<ContainerButtons>
