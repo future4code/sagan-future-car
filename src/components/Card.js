@@ -3,8 +3,9 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { render } from 'react-dom';
 
-const baseUrl = "https://us-central1-future-apis.cloudfunctions.net/futureCar/cars"
+const CardBox = styled.div`
 
+`
 
 class Card extends Component {
 	constructor(props) {
@@ -14,39 +15,14 @@ class Card extends Component {
 		}
 	}
 
-
-	searchAll = async () => {
-		try {
-			const response = await axios.get(
-				`${baseUrl}`,
-			)	
-	
-			const listaDeCarros = this.props.cars
-	
-			listaDeCarros.cars = response.data.result.cars
-	
-			this.searchAll({
-				cars
-			})
-	
-		} catch (error) {
-	
-		}
-	}
-
-	componentDidMount() {
-		this.searchCard()
-	}
-
 	render() {
 		return (
-			<Container>
-				<Card>
-					{this.state.cars.map(car => {
+			<div>
+				<CardBox>
+					{this.props.cars.map(car => {
 						return (
 							<div>
-								<p> Título: {car.id}</p>
-								<p> Nome: {car.name}</p>
+								<p> Título: {car.name}</p>
 								<p> Descrição: {car.description}</p>
 								<p> Meio de Pagamento: {car.paymentMethod}</p>
 								<p> Valor da venda: {car.price}</p>
@@ -55,8 +31,8 @@ class Card extends Component {
 						)
 					})
 					}
-				</Card>
-			</Container>
+				</CardBox>
+			</div>
 		)
 	}
 }
