@@ -24,18 +24,19 @@ class Filtro extends Component {
 			valorMin: event.target.value
 		})
 
-		if (event.target.value && event.target.value.lenght > 0) {
-			const dados = (this.state.valorMax.length > 0 || this.state.titulo.length > 0) ? this.state.dataFilter : this.state.data
+		if (event.target.value) {
+			const dados = (this.state.valorMax.length > 0 || this.state.titulo.length > 0) ? this.state.dataFilter : this.props.dados;
 			const dataFilter = this.filterByMinValue(event.target.value, dados)
-
+			//console.log(event.target.value)
 			this.props.novosDadosFiltrados(dataFilter)
-
 			this.setState({
-				dataFilter
+				dataFilter : dados
 			})
 
 		} else {
-			let dados = this.props.data
+			console.log(event.target.value.lenght)
+			let dados = this.props.dados
+			console.log('fui executado')
 
 			if (this.state.valorMax.length > 0) {
 				dados = this.filterByMaxValue(this.state.valorMax, dados)
@@ -122,8 +123,9 @@ class Filtro extends Component {
 	}
 
 	filterByMinValue = (value, data) => {
+		console.log(value,data)
 		return data.filter(dado => {
-			return dado.price <= value
+			return parseFloat(dado.price) >= parseFloat(value)
 		})
 	}
 

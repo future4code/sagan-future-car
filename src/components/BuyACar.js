@@ -46,7 +46,7 @@ export default class BuyACar extends Component{
 					cardsOrdenados={this.cardsOrdenados}
 					newDataFilter={data}
 				/>
-				<Filtro novosDadosFiltrados={this.modificaDadosFiltrados} data={this.state.dados} />
+				<Filtro novosDadosFiltrados={this.modificaDadosFiltrados} dados={this.state.dados} />
 				<Card cars={newDataOrder} />
 
 			</div>
