@@ -20,13 +20,12 @@ const ContainerRegister = styled.div`
   display: flex;
   justify-content:center;
   margin-top:2rem;
-  
+  height:75vh;  
 `;
 
 const Titulo = styled.h2`
-	text-align:center;
-	
-`
+	text-align:center;	
+`;
 
 const DivPai = styled.div`
   background-color: #FFFFFF;
@@ -40,8 +39,9 @@ const DivPai = styled.div`
 
 const ContainerButtons = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  margin-top:2rem;
+  justify-content: space-around;
+  flex-direction:row;
+  margin-top:30px;  
 `;
 
 class PageSalerRegister extends React.Component {
@@ -53,7 +53,8 @@ class PageSalerRegister extends React.Component {
 			description: "",
 			paymentMethod: "",
 			shipping: "",
-			price: ""
+			price: "",
+			photo: ""
 		};
 	}
 
@@ -107,73 +108,66 @@ class PageSalerRegister extends React.Component {
 				})
 			})
 			.catch(error => {
-				console.log(error.message);
+				console.log(error.data.message);
 				alert("Erro ao cadastrar!");
 			});
 	};
 
 	render() {
 		return (
-			<div>
-				<div>
-					<ContainerRegister>
-						<DivPai>
-							<Titulo>Cadastre o seu veículo</Titulo>
-							<input
-								placeholder="Nome"
-								onChange={this.handleName}
-								value={this.state.name}
-								type="text"
-							/>
-							<input
-								placeholder="Método de pagamento"
-								onChange={this.handlePaymentMethod}
-								value={this.state.paymentMethod}
-								type="text"
-							/>
-							<input
-								placeholder="Prazo de entrega"
-								onChange={this.handleShipping}
-								value={this.state.shipping}
-								type="text"
-							/>
-							<input
-								placeholder="Preço"
-								onChange={this.handlePrice}
-								value={this.state.price}
-								type="text"
-							/>
-							<textarea
-								placeholder="Descrição do carro"
-								onChange={this.handleDescription}
-								value={this.state.description}
-								type="text"
-								rows="10"
-								cols="20"
-							/>
-							{/* <p>Cadastro do vendedor</p>
-            <input placeholder="Nome" /> */}
-						</DivPai>
-					</ContainerRegister>					
-				</div>
-				<MuiThemeProvider theme={myTheme}>
-					<ContainerButtons>
-						<Button color="secondary" size="medium" variant="contained" main onClick={() => this.props.handleChangePage("home")}>
-							Voltar
-            </Button>
-						<Button
-							onClick={this.postNewRegister}
-							color="primary"
-							size="medium"
-							variant="contained"
-						>
-							Cadastrar
-            </Button>
-					</ContainerButtons>
-				</MuiThemeProvider>
-			</div>
+			<ContainerRegister>
+				<DivPai>
+					<Titulo>Cadastre o seu veículo</Titulo>
+					<input
+						placeholder="Nome"
+						onChange={this.handleName}
+						value={this.state.name}
+						type="text"
+					/>
+					<input
+						placeholder="Método de pagamento"
+						onChange={this.handlePaymentMethod}
+						value={this.state.paymentMethod}
+						type="text"
+					/>
+					<input
+						placeholder="Prazo de entrega"
+						onChange={this.handleShipping}
+						value={this.state.shipping}
+						type="text"
+					/>
+					<input
+						placeholder="Preço"
+						onChange={this.handlePrice}
+						value={this.state.price}
+						type="text"
+					/>
+					<textarea
+						placeholder="Descrição do carro"
+						onChange={this.handleDescription}
+						value={this.state.description}
+						type="text"
+						rows="10"
+						cols="20"
+					/>
+					<MuiThemeProvider theme={myTheme}>
+						<ContainerButtons>
+							<Button color="secondary" size="medium" variant="contained" main onClick={() => this.props.handleChangePage("home")}>
+								Voltar
+            				</Button>
+							<Button
+								onClick={this.postNewRegister}
+								color="primary"
+								size="medium"
+								variant="contained"
+							>
+								Cadastrar
+            				</Button>
+						</ContainerButtons>
+					</MuiThemeProvider>
+				</DivPai>
+			</ContainerRegister>
 		);
 	}
 }
-
 export default PageSalerRegister;

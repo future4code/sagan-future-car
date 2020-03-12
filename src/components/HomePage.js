@@ -1,18 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 import Button from '@material-ui/core/Button';
 
 const WrapperHome = styled.div`
 background-color: #FAFAFA;
+height: 80vh;
 `
 const WrapperNavegation = styled.div`
 display:flex;
 height: 70vh;
 justify-content: space-evenly;
 align-items: center;
-
 `
 const ImgPag = styled.img`
 width: 100%;
@@ -21,7 +20,6 @@ box-shadow:5px 5px 9px black;
 padding:0;
 margin: 0;
 margin-bottom: 5rem;
-
 `
 const Figure = styled.figure`
 width: 30%;
@@ -30,11 +28,9 @@ text-align: center;
 `
 
 const HomePage = (props) => {
-
 	const renderPage = (id) =>{
 		props.handleChangePage(id)
 	}
-
 
 	return (
 		<WrapperHome>
@@ -60,6 +56,5 @@ const HomePage = (props) => {
 		</WrapperHome>
 	)
 }
-
 
 export default HomePage

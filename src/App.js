@@ -60,8 +60,8 @@ class App extends React.Component {
 					{this.handleRenderPage()}
 					<CssBaseline />
 					<AppContainer />
-					<Footer />
-				</MuiThemeProvider>
+					<Footer />					
+				</MuiThemeProvider>				
 			</JssProvider>
 		)
 	}
