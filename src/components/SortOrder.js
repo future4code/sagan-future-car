@@ -27,12 +27,10 @@ class SortList extends React.Component {
 				return a.name > b.name ? -1 : a.name < b.name ? 1 : 1
 			})
 			this.props.cardsOrdenados(orderData)
-
 		}
 
-
-		}
 	}
+	
 
 	sortPrice = (e) => {
 		const idName = e.target.value
@@ -55,10 +53,8 @@ class SortList extends React.Component {
 	}
 	render() {
 		return (
-
 			<SortWrapper>
 				<h3>Ordenar os Carros</h3>
-
 				<select onChange={this.sortName}>
 					<option>Selecione</option>
 					<option
@@ -66,10 +62,6 @@ class SortList extends React.Component {
 					>
 						Nome Crescente
 					</option>
-
-					<option
-						value='nomeDecrescente'
-					>
 					<option>
 						Nome Decrescente
 					</option>
@@ -84,7 +76,6 @@ class SortList extends React.Component {
 					<option>
 						Menor Preço
 					</option>
-
 				</select>
 			</SortWrapper>
 		)
