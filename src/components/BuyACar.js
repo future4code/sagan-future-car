@@ -3,7 +3,6 @@ import Card from './Card';
 import axios from 'axios';
 import Filtro from './Filtro'
 
-
 export default class BuyACar extends Component{
 	constructor(props){
 		super(props);
@@ -18,7 +17,9 @@ export default class BuyACar extends Component{
 
 		this.setState({
 			dados: response.data.cars
+			
 		})
+		console.log(response.data.cars)
 	}
 
 	componentDidMount() {

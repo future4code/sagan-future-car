@@ -10,16 +10,14 @@ display: flex;
 justify-content: space-between;
 color:white;
 align-items: center;
-position:fixed;
 bottom:0;
-width: 100vw;
 `
 const Logo = styled.img`
 	height:9vh;
 	width:8vw;
 	margin-left:10px;
 	border-radius:50%;
-	`
+`
 const IconSocialNetwork = styled.img`
 width: 25px;
 margin-left: 10px;
@@ -45,7 +43,6 @@ export default function Footer() {
 			<TextFooter>
 				Somos a melhor empresa no pós venda de carros segundo a revista Carros.SA
 			</TextFooter>
-
 			<SocialWrapper>
 				<span>Redes sociais:</span>
 				<IconSocialNetwork src={require('../img/iconFace.svg')} />
@@ -55,8 +52,7 @@ export default function Footer() {
 				<Phone />
 				<span>
 					(55)31XXXX-XXXX
-				</span>
-				
+				</span>				
 			</ContactWrapper>
 		</Footers>
 	)

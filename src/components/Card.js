@@ -1,45 +1,45 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import IconButton from '@material-ui/core/IconButton';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
-
-const CardBox = styled.div`
-	height: 100vh;
-	background:FFFFFF;
+const CardBox = styled.div`	
 	display:grid;
-	grid-gap:20px;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: auto auto auto;
-	
+	grid-gap:2px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;	
 `
 
 const CardDetails = styled.div`		
 	border:1px solid black;
-    width:15vw;
-    margin:20px;	
+    width:22vw;
+    margin:10px;	
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
-	align-items:center;
-	
+	align-items:center;	
 `
 
 class Card extends Component {
+	
 	constructor(props) {
 		super(props);
 	}
 
-	render() {
+	render() {		
 		return (
 			<div>
 				<CardBox>
 					{this.props.cars.map(car => {
 						return (
 							<CardDetails>
-								<p> Título: {car.name}</p>
+								<p> Carro: {car.name}</p>								
 								<p> Descrição: {car.description}</p>
 								<p> Forma de Pagamento: {car.paymentMethod}</p>
-								<p> Valor da venda: {car.price}</p>
-								<p> Prazo de Entrega: {car.shipping}</p>
+								<p> Valor da venda:R$ {car.price}</p>
+								<p> Prazo de Entrega: {car.shipping}</p>								
+								<IconButton color="primary" aria-label="add to shopping cart">
+        						<AddShoppingCartIcon />
+      							</IconButton>								
 							</CardDetails>
 						)
 					})

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { Input } from '@material-ui/core';
+
 const FilterWrapper = styled.div`
 	text-align:center;
 	margin-top:10px;
@@ -90,7 +92,7 @@ class Filtro extends Component {
 			titulo: event.target.value
 		})
 
-		if (event.target.value && event.taget.value > 0) {
+		if (event.target.value && event.taget.value.length > 0) {
 			const dados = (this.state.valorMin.lenght > 0 || this.state.valorMax > 0) ? this.state.dataFilter : this.state.data
 			const dataFilter = this.filterByTitulo(event.target.value, dados)
 
@@ -103,11 +105,11 @@ class Filtro extends Component {
 		} else {
 			let dados = this.props.data
 
-			if (this.state.valorMax > 0) {
+			if (this.state.valorMax.length > 0) {
 				dados = this.filterByMaxValue(this.state.valorMax, dados)
 			}
 
-			if (this.state.valorMin > 0) {
+			if (this.state.valorMin.length > 0) {
 				dados = this.filterByMinValue(this.state.valorMin, dados)
 			}
 
@@ -141,11 +143,11 @@ class Filtro extends Component {
 		return (
 			<FilterWrapper>
 				<label for="valorMin"> Valor Mínimo: </label>
-				<input type='number' id="valorMin" onChange={this.handleOnChangeValueMin} value={this.state.valorMin} />
+				<Input type='number' id="valorMin" onChange={this.handleOnChangeValueMin} value={this.state.valorMin} />
 				<label for="valorMax"> Valor Maximo: </label>
-				<input type='number' id="valoraMax" onChange={this.handleOnChangeValueMax} value={this.state.valorMax} />
+				<Input type='number' id="valoraMax" onChange={this.handleOnChangeValueMax} value={this.state.valorMax} />
 				<label for="valorMin"> Título: </label> 
-				<input type='text' id="titulo" onChange={this.handleOnChangeTitulo} value={this.state.titulo} />
+				<Input type='text' id="titulo" onChange={this.handleOnChangeTitulo} value={this.state.titulo} />
 			</FilterWrapper>
 		)
 	}
