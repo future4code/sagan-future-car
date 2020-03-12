@@ -57,6 +57,7 @@ class App extends React.Component {
 					{this.handleRenderPage()}
 					<CssBaseline />
 					<AppContainer />
+					<BuyACar></BuyACar>
 				</MuiThemeProvider>
 			</JssProvider>
 		)
