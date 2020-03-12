@@ -20,8 +20,7 @@ export default class BuyACar extends Component{
 		this.setState({
 			dados: response.data.cars
 			
-		})
-		console.log(response.data.cars)
+		})		
 	}
 
 	componentDidMount() {
@@ -39,16 +38,16 @@ export default class BuyACar extends Component{
 
 
 	render(){
-		const dados = this.state.dataFilter.length > 0 ? this.state.dataFilter : this.state.dados
-		const ordenados = this.state.carrosOrdenados.length > 0 ? this.state.carrosOrdenados : dados
+		const data = this.state.dataFilter.length > 0 ? this.state.dataFilter : this.state.dados
+		const newDataOrder = this.state.carrosOrdenados.length > 0 ? this.state.carrosOrdenados : data
 		return(
 			<div>
 				<SortOrder
 					cardsOrdenados={this.cardsOrdenados}
-					test={dados}
+					newDataFilter={data}
 				/>
 				<Filtro novosDadosFiltrados={this.modificaDadosFiltrados} data={this.state.dados} />
-				<Card cars={ordenados} />
+				<Card cars={newDataOrder} />
 
 			</div>
 		)
