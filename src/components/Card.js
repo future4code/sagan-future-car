@@ -8,11 +8,10 @@ const CardBox = styled.div`
 	grid-gap:2px;
 	grid-template-columns: 1fr 1fr 1fr 1fr;	
 `
-
 const DetailsCar = styled.div`
 	margin-left:10px;
+	max-width:15vw;
 `
-
 const CardDetails = styled.div`		
 	border:1px solid black;
     width:22vw;
@@ -28,7 +27,6 @@ class Card extends Component {
 	constructor(props) {
 		super(props);
 	}
-
 	render() {		
 		return (
 			<div>
