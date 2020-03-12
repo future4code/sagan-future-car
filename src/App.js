@@ -8,6 +8,8 @@ import { AppContainer } from './components/AppContainer'
 import HomePage from './components/HomePage'
 import PageSalerRegister from './components/PageSalerRegister'
 import BuyACar from './components/BuyACar'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 const generateClassName = createGenerateClassName()
 const jss = create({
@@ -54,10 +56,11 @@ class App extends React.Component {
 		return (
 			<JssProvider jss={jss} generateClassName={generateClassName}>
 				<MuiThemeProvider theme={theme}>
+					<Header handleChangePage = {this.handleChangePage} />
 					{this.handleRenderPage()}
 					<CssBaseline />
 					<AppContainer />
-					<BuyACar></BuyACar>
+					<Footer />
 				</MuiThemeProvider>
 			</JssProvider>
 		)

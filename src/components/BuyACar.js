@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import Header from './Header';
-import Footer from './Footer';
 import Card from './Card';
 import axios from 'axios';
 import Filtro from './Filtro'
-
 
 
 export default class BuyACar extends Component{
@@ -38,12 +34,9 @@ export default class BuyACar extends Component{
 	render(){
 		const dados = this.state.dataFilter.length > 0 ? this.state.dataFilter : this.state.dados
 		return(
-			<div>
-				<Header
-				 handleChangePage = {this.props.handleChangePage}/>
+			<div>				
 				<Filtro novosDadosFiltrados={this.modificaDadosFiltrados} data={this.state.dados}/>
-				<Card cars={dados}/>
-				<Footer />
+				<Card cars={dados}/>				
 			</div>
 		)
 	}

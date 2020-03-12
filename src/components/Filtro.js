@@ -1,4 +1,10 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const FilterWrapper = styled.div`
+	text-align:center;
+	margin-top:10px;
+`
 
 class Filtro extends Component {
 	constructor(props) {
@@ -84,8 +90,8 @@ class Filtro extends Component {
 			titulo: event.target.value
 		})
 
-		if (event.target.value && event.taget.value.lenght > 0) {
-			const dados = (this.state.valorMin.lenght > 0 || this.state.valorMax.length > 0) ? this.state.dataFilter : this.state.data
+		if (event.target.value && event.taget.value > 0) {
+			const dados = (this.state.valorMin.lenght > 0 || this.state.valorMax > 0) ? this.state.dataFilter : this.state.data
 			const dataFilter = this.filterByTitulo(event.target.value, dados)
 
 			this.props.novosDadosFiltrados(dataFilter)
@@ -97,11 +103,11 @@ class Filtro extends Component {
 		} else {
 			let dados = this.props.data
 
-			if (this.state.valorMax.length > 0) {
+			if (this.state.valorMax > 0) {
 				dados = this.filterByMaxValue(this.state.valorMax, dados)
 			}
 
-			if (this.state.valorMin.length > 0) {
+			if (this.state.valorMin > 0) {
 				dados = this.filterByMinValue(this.state.valorMin, dados)
 			}
 
@@ -133,14 +139,14 @@ class Filtro extends Component {
 
 	render() {
 		return (
-			<div>
+			<FilterWrapper>
 				<label for="valorMin"> Valor Mínimo: </label>
 				<input type='number' id="valorMin" onChange={this.handleOnChangeValueMin} value={this.state.valorMin} />
 				<label for="valorMax"> Valor Maximo: </label>
 				<input type='number' id="valoraMax" onChange={this.handleOnChangeValueMax} value={this.state.valorMax} />
-				<label for="valorMin"> Valor Mínimo: </label> 
+				<label for="valorMin"> Título: </label> 
 				<input type='text' id="titulo" onChange={this.handleOnChangeTitulo} value={this.state.titulo} />
-			</div>
+			</FilterWrapper>
 		)
 	}
 }

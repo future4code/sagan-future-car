@@ -5,12 +5,12 @@ import Phone from "@material-ui/icons/PhoneAndroid"
 
 const Footers = styled.footer`
 height: 12vh;
-background-color: #091E28;
+background-color: #003152;
 display: flex;
 justify-content: space-between;
 color:white;
 align-items: center;
-position:absolute;
+position:fixed;
 bottom:0;
 width: 100vw;
 `
@@ -18,6 +18,7 @@ const Logo = styled.img`
 	height:9vh;
 	width:8vw;
 	margin-left:10px;
+	border-radius:50%;
 	`
 const IconSocialNetwork = styled.img`
 width: 25px;
