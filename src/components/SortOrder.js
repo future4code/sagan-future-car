@@ -7,81 +7,66 @@ class SortList extends React.Component {
 			cars: []
 		}
 	}
-	renderizar = (e) => {
+	sortName = (e) => {
 		const idName = e.target.value
-		if (idName == 'nomeCrescente') {
-			console.log('if')
-			const cars = this.props.test
-			const test = cars.sort((a, b) => {
+		const cars = this.props.newDataFilter
+		if (idName == 'ascending order') {
+			const orderData = cars.sort((a, b) => {
 				return a.name < b.name ? -1 : a.name > b.name ? 1 : 1
 			})
-			console.log(test)
-			this.props.cardsOrdenados(test)
+			this.props.cardsOrdenados(orderData)
 		}
-
 		else {
-			console.log('else')
-			const cars = this.props.test
-			const test = cars.sort((a, b) => {
+			const orderData = cars.sort((a, b) => {
 				return a.name > b.name ? -1 : a.name < b.name ? 1 : 1
 			})
-			console.log(test)
-			this.props.cardsOrdenados(test)
+			this.props.cardsOrdenados(orderData)
 		}
 
 	}
 
-
-	ordernarPreco = (e) => {
+	sortPrice = (e) => {
 		const idName = e.target.value
-		const cars = this.props.test
-		console.log(cars)
-		if (idName == 'maiorPreco') {
+		const cars = this.props.newDataFilter
+		if (idName == 'high value') {
 			const test = cars.sort((a, b) => {
-				return a.price < b.price ? -1 : a.price > b.price ? 1: 0
-			
+				return parseFloat(a.price) > parseFloat(b.price) ? -1 
+				: parseFloat(a.price) < parseFloat(b.price) ? 1 : 0
 			})
-			console.log(test + 'if')
+			console.log(test.price)
 			this.props.cardsOrdenados(test)
 		}
 		else {
 			const test = cars.sort((a, b) => {
-				return a.price > b.price ? -1 : a.price < b.price ? 1: 0
+				return parseFloat(a.price) < parseFloat(b.price) ? -1 
+				: parseFloat(a.price) > parseFloat(b.price) ? 1 : 0
 			})
-			console.log(test + 'else')
 			this.props.cardsOrdenados(test)
-
 		}
-
 	}
-
 	render() {
 		return (
 			<div>
 				<span>Ordenar os Cards</span>
-				<select onChange={this.renderizar}>
+				<select onChange={this.sortName}>
 					<option>Selecione</option>
 					<option
-						value='nomeCrescente'
+						value='ascending order'
 					>
-						Ordem Crescente
+						Nome Crescente
 					</option>
-					<option
-						value='nomeDecrescente'
-					>
-						Ordem Decrescente
+					<option>
+						Nome Decrescente
 					</option>
 				</select>
-				<select onChange={this.ordernarPreco}>
+				<select onChange={this.sortPrice}>
 					<option>Selecione </option>
 					<option
-						value='maiorPreco'
+						value='high value'
 					>
 						Maior Preço
 					</option>
-					<option
-						value='menorPreco'
-					>
+					<option>
 						Menor Preço
 					</option>
 
