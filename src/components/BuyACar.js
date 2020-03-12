@@ -20,7 +20,10 @@ export default class BuyACar extends Component{
 		this.setState({
 			dados: response.data.cars
 			
-		})
+
+		})		
+
+
 	}
 
 	componentDidMount() {
