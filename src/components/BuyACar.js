@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import Card from './Card';
 import axios from 'axios';
 import Filtro from './Filtro'
+import SortOrder from './SortOrder'
 
 export default class BuyACar extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
 			dados: [],
-			dataFilter: []
+			dataFilter: [],
+			carrosOrdenados: []
 		}
 	}
 
@@ -31,13 +33,23 @@ export default class BuyACar extends Component{
 			dataFilter: dados
 		})
 	}
+	cardsOrdenados = (cards) => {
+		this.setState({ carrosOrdenados: cards })
+	}
+
 
 	render(){
 		const dados = this.state.dataFilter.length > 0 ? this.state.dataFilter : this.state.dados
+		const ordenados = this.state.carrosOrdenados.length > 0 ? this.state.carrosOrdenados : dados
 		return(
-			<div>				
-				<Filtro novosDadosFiltrados={this.modificaDadosFiltrados} data={this.state.dados}/>
-				<Card cars={dados}/>				
+			<div>
+				<SortOrder
+					cardsOrdenados={this.cardsOrdenados}
+					test={dados}
+				/>
+				<Filtro novosDadosFiltrados={this.modificaDadosFiltrados} data={this.state.dados} />
+				<Card cars={ordenados} />
+
 			</div>
 		)
 	}
