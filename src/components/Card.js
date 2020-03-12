@@ -9,6 +9,10 @@ const CardBox = styled.div`
 	grid-template-columns: 1fr 1fr 1fr 1fr;	
 `
 
+const DetailsCar = styled.div`
+	margin-left:10px;
+`
+
 const CardDetails = styled.div`		
 	border:1px solid black;
     width:22vw;
@@ -32,11 +36,13 @@ class Card extends Component {
 					{this.props.cars.map(car => {
 						return (
 							<CardDetails>
-								<p> Carro: {car.name}</p>								
+								<p>{car.name}</p>
+								<DetailsCar>								
 								<p> Descrição: {car.description}</p>
 								<p> Forma de Pagamento: {car.paymentMethod}</p>
 								<p> Valor da venda:R$ {car.price}</p>
-								<p> Prazo de Entrega: {car.shipping}</p>								
+								<p> Prazo de Entrega: {car.shipping}</p>
+								</DetailsCar>								
 								<IconButton color="primary" aria-label="add to shopping cart">
         						<AddShoppingCartIcon />
       							</IconButton>								
