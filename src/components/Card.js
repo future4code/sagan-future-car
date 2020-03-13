@@ -22,36 +22,30 @@ const CardDetails = styled.div`
 	align-items:center;	
 `
 
-class Card extends Component {
-	
-	constructor(props) {
-		super(props);
-	}
-	render() {		
-		return (
-			<div>
-				<CardBox>
-					{this.props.cars.map(car => {
-						return (
-							<CardDetails>
-								<p>{car.name}</p>
-								<DetailsCar>								
-								<p> Descrição: {car.description}</p>
-								<p> Forma de Pagamento: {car.paymentMethod}</p>
-								<p> Valor da venda:R$ {car.price}</p>
-								<p> Prazo de Entrega: {car.shipping}</p>
-								</DetailsCar>								
-								<IconButton color="primary" aria-label="add to shopping cart">
-        						<AddShoppingCartIcon />
-      							</IconButton>								
-							</CardDetails>
-						)
-					})
-					}
-				</CardBox>
-			</div>
-		)
-	}
+function Card(props) {
+	return (
+				<div>
+					<CardBox>
+						{props.cars.map(car => {
+							return (
+								<CardDetails>
+									<p>{car.name}</p>
+									<DetailsCar>								
+									<p> Descrição: {car.description}</p>
+									<p> Forma de Pagamento: {car.paymentMethod}</p>
+									<p> Valor da venda:R$ {car.price}</p>
+									<p> Prazo de Entrega: {car.shipping}</p>
+									</DetailsCar>								
+									<IconButton color="primary" aria-label="add to shopping cart">
+									<AddShoppingCartIcon />
+									</IconButton>								
+								</CardDetails>
+							)
+						})
+						}
+					</CardBox>
+				</div>
+			)
 }
 
 export default Card; 
