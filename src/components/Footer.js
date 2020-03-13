@@ -51,7 +51,7 @@ export default function Footer() {
 				<Phone />
 				<span>
 					(55)31XXXX-XXXX
-				</span>				
+				</span>
 			</ContactWrapper>
 		</Footers>
 	)

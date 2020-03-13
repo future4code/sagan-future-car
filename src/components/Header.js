@@ -28,8 +28,8 @@ const TituloHeader = styled.h2`
 
 const temaHeader = createMuiTheme({
 	palette: {
-		primary:{
-			main:'#FFFFFF'
+		primary: {
+			main: '#FFFFFF'
 		}
 	}
 })
@@ -46,12 +46,12 @@ export default function Header(props) {
 		setAnchorEl(null);
 		props.handleChangePage(idPag)
 	};
-	
+
 	return (
 		<MainHeader>
 			<Logo src={require('../img/futurecar.png')} alt="logo-da-marca" />
 			<TituloHeader>FutureCar - Aqui você encontra o seu futuro carro</TituloHeader>
-			<MuiThemeProvider theme={temaHeader}>				
+			<MuiThemeProvider theme={temaHeader}>
 				<Button color='primary' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
 					Menu
 			</Button>
@@ -62,9 +62,9 @@ export default function Header(props) {
 					open={Boolean(anchorEl)}
 					onClose={handleClose}
 				>
-					<MenuItem id = 'home' onClick={handleClose}>Home</MenuItem>
-					<MenuItem id = 'buyCar' onClick={handleClose}>Comprar Veículo</MenuItem>
-					<MenuItem id = 'sellCar' onClick={handleClose}>Vender Veículo</MenuItem>
+					<MenuItem id='home' onClick={handleClose}>Home</MenuItem>
+					<MenuItem id='buyCar' onClick={handleClose}>Comprar Veículo</MenuItem>
+					<MenuItem id='sellCar' onClick={handleClose}>Vender Veículo</MenuItem>
 				</Menu>
 			</MuiThemeProvider>
 		</MainHeader>
