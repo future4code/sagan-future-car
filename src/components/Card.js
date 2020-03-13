@@ -27,6 +27,7 @@ function Card(props) {
 				<div>
 					<CardBox>
 						{props.cars.map(car => {
+							debugger
 							return (
 								<CardDetails>
 									<p>{car.name}</p>

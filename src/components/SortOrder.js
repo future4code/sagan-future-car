@@ -27,7 +27,9 @@ export default function SortOrder(props){
 					>
 						Maior Preço
 					</option>					
-					<option>
+					<option
+					value='lower value'
+					>
 						Menor Preço
 					</option>
 				</select>

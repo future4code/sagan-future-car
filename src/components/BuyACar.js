@@ -61,10 +61,22 @@ export default class BuyACar extends Component {
 	}
 
 	orderCars = (cars) => {
-		const idName = this.state.ordenacao.ordem
-		console.log(idName)		
-		const campoOrdenado = this.state.ordenacao.valorOrdenado === 'high value'? 'price' : 'name'
+		
+		let campoOrdenado 
+		let idName = this.state.ordenacao.ordem
+		console.log(idName)	
+		 if(this.state.ordenacao.valorOrdenado === 'high value'){
+			campoOrdenado = 'price'
+		}
+		else if (this.state.ordenacao.valorOrdenado === 'lower value' ){
+			campoOrdenado = 'price'
+			idName = 'ascending order'
+		}
+		else{
+			campoOrdenado = 'name'
+		}
 
+	
 		console.log(campoOrdenado)
 		
 		if (idName === 'ascending order') {
@@ -87,8 +99,9 @@ export default class BuyACar extends Component {
 	}
 
 	updateOrder = (e) => {
+		debugger
 		const novoValor = e.target.value
-		if (novoValor === 'high value') {
+		if (novoValor === 'high value' || novoValor === 'lower value' ) {
 			this.setState({
 				ordenacao: {
 					...this.state.ordenacao,
