@@ -9,16 +9,14 @@ export default class BuyACar extends Component {
 		super(props);
 		this.state = {
 			dados: [],
-			// dataFilter: [],
-			// carrosOrdenados: []
 			filtros: {
 				valorMin: '',
 				valorMax: '',
 				titulo: '',
 			},
 			ordenacao: {
-				ordem: '',
-				valorOrdenado: ''
+				ordem:'',
+				valorOrdenado:''
 			}
 		}
 	}
@@ -37,40 +35,41 @@ export default class BuyACar extends Component {
 		this.allCars()
 	}
 
-	modificaDadosFiltrados = (novosFiltros) => {
-		console.log(novosFiltros)
+	modifyFilteredData = (newFilters) => {		
 		this.setState({
-			filtros: novosFiltros
+			filtros: newFilters
 		})
 	}
 
-	filtrarCarros = (carros) => {
+	filterCars = (cars) => {
 		const { filtros } = this.state
 
-		const carrosFiltrados = carros
-			.filter(carro => {
-				return Number(carro.price) >= Number(filtros.valorMin)
+		const filteredCars = cars
+			.filter(car => {
+				return Number(car.price) >= Number(filtros.valorMin)
 			})
-			.filter(carro => {
+			.filter(car => {
 				if (Number(filtros.valorMax) === 0) {
 					return true
 				}
-				return Number(carro.price) <= Number(filtros.valorMax)
+				return Number(car.price) <= Number(filtros.valorMax)
 			})
-			.filter(carro => {
-				console.log(carro.titulo, filtros.titulo)
-				return carro.name.toLowerCase().indexOf(filtros.titulo.toLowerCase()) > -1
+			.filter(car => {				
+				return car.name.toLowerCase().indexOf(filtros.titulo.toLowerCase()) > -1
 			})
-		return carrosFiltrados
+		return filteredCars
 	}
 
-	ordenarCarros = (cars) => {
+	orderCars = (cars) => {
 		const idName = this.state.ordenacao.ordem
-		const campoOrdenado = this.state.ordenacao.valorOrdenado === 'high value' ? 'price' : 'name'
+		console.log(idName)		
+		const campoOrdenado = this.state.ordenacao.valorOrdenado === 'high value'? 'price' : 'name'
+
+		console.log(campoOrdenado)
 		
 		if (idName === 'ascending order') {
 			const orderData = cars.sort((a, b) => {
-				if(campoOrdenado === 'price'){
+				if (campoOrdenado === 'price') {
 					return Number(a.price) < Number(b.price) ? -1 : 1
 				}
 				return a[campoOrdenado] < b[campoOrdenado] ? -1 : 1
@@ -78,7 +77,7 @@ export default class BuyACar extends Component {
 			return orderData
 		}
 		const orderData = cars.sort((a, b) => {
-			if(campoOrdenado === 'price'){
+			if (campoOrdenado === 'price') {
 				return Number(a.price) > Number(b.price) ? -1 : 1
 			}
 			return a[campoOrdenado] > b[campoOrdenado] ? -1 : 1
@@ -87,7 +86,7 @@ export default class BuyACar extends Component {
 
 	}
 
-	atualizaOrdenacao = (e) => {
+	updateOrder = (e) => {
 		const novoValor = e.target.value
 		if (novoValor === 'high value') {
 			this.setState({
@@ -96,16 +95,14 @@ export default class BuyACar extends Component {
 					valorOrdenado: novoValor
 				}
 			})
-		}
-		else if (novoValor === 'ascending order') {
+		}else if (novoValor === 'ascending order') {
 			this.setState({
 				ordenacao: {
 					...this.state.ordenacao,
 					ordem: novoValor
 				}
 			})
-		}
-		else {
+		}else {
 			this.setState({
 				ordenacao: {
 					ordem: '',
@@ -119,18 +116,16 @@ export default class BuyACar extends Component {
 		if (this.state.dados.length === 0) {
 			return <h1>Carregando...</h1>
 		}
-
-		const carrosFiltrados = this.filtrarCarros(this.state.dados)
-		const carrosOrdenados = this.ordenarCarros(carrosFiltrados)
+		const filteredCars = this.filterCars(this.state.dados)
+		const orderedCars = this.orderCars(filteredCars)
 		return (
 			<div>
 				<SortOrder
-					atualizaOrdenacao={this.atualizaOrdenacao}
+					updateOrder={this.updateOrder}
 				/>
-				<Filtro novosDadosFiltrados={this.modificaDadosFiltrados} />
-				<Card cars={carrosOrdenados} />
-
+				<Filtro newDataFiltered={this.modifyFilteredData} />
+				<Card cars={orderedCars} />
 			</div>
 		)
 	}
-}
+}	

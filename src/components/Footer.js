@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Phone from "@material-ui/icons/PhoneAndroid"
 
-
 const Footers = styled.footer`
 height: 12vh;
 background-color: #003152;
