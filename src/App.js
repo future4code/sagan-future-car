@@ -43,6 +43,11 @@ class App extends React.Component {
 				return( <BuyACar
 					handleChangePage = {this.handleChangePage}
 				 />)
+
+				 default:
+					 return <HomePage
+					 handleChangePage = {this.handleChangePage}
+					  />
 		}
 	}
 	handleChangePage = (idPag) =>{ 

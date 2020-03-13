@@ -22,14 +22,14 @@ class Filtro extends Component {
 		this.setState({
 			valorMin: event.target.value
 		})
-		this.props.novosDadosFiltrados({ ...this.state, valorMin: event.target.value })
+		this.props.newDataFiltered({ ...this.state, valorMin: event.target.value })
 	}
 
 	handleOnChangeValueMax = (event) => {
 		this.setState({
 			valorMax: event.target.value
 		})
-		this.props.novosDadosFiltrados({ ...this.state, valorMax: event.target.value })
+		this.props.newDataFiltered({ ...this.state, valorMax: event.target.value })
 	}
 
 
@@ -37,7 +37,7 @@ class Filtro extends Component {
 		this.setState({
 			titulo: event.target.value
 		})
-		this.props.novosDadosFiltrados({ ...this.state, titulo: event.target.value })
+		this.props.newDataFiltered({ ...this.state, titulo: event.target.value })
 	}
 	render() {
 		return (

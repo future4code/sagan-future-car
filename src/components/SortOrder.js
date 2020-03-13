@@ -5,19 +5,11 @@ const SortWrapper = styled.div`
 	text-align:center;
 `
 
-class SortList extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			cars: []
-		}
-	}
-	
-	render() {
-		return (
-			<SortWrapper>
-				<h3>Ordenar os Carros</h3>
-				<select onChange={this.props.atualizaOrdenacao}>
+export default function SortOrder(props){
+	return(
+		<SortWrapper>
+			<h3>Ordenar os Carros</h3>
+				<select onChange={props.updateOrder}>
 					<option>Selecione</option>
 					<option
 						value='ascending order'
@@ -27,21 +19,18 @@ class SortList extends React.Component {
 					<option>
 						Nome Decrescente
 					</option>
-				</select>
-				<select onChange={this.props.atualizaOrdenacao}>
+				</select>				
+				<select onChange={props.updateOrder}>
 					<option>Selecione </option>
 					<option
 						value='high value'
 					>
 						Maior Preço
-					</option>
+					</option>					
 					<option>
 						Menor Preço
 					</option>
 				</select>
 			</SortWrapper>
-		)
-	}
+	)
 }
-
-export default SortList
