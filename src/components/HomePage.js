@@ -28,7 +28,7 @@ text-align: center;
 `
 
 const HomePage = (props) => {
-	const renderPage = (id) =>{
+	const renderPage = (id) => {
 		props.handleChangePage(id)
 	}
 
@@ -36,23 +36,23 @@ const HomePage = (props) => {
 		<WrapperHome>
 			<WrapperNavegation>
 				<Figure>
-					<ImgPag 
-					src={require('../img/buyCar.jpg')} 
-					onClick={'aqui vai uma props'}
+					<ImgPag
+						src={require('../img/buyCar.jpg')}
+						onClick={'aqui vai uma props'}
 					/>
-					    <Button onClick={() => renderPage("buyCar")} variant="contained" color="primary">
-        					Compre um carro novo
+					<Button onClick={() => renderPage("buyCar")} variant="contained" color="primary">
+						Compre um carro novo
       					</Button>
 				</Figure>
 				<Figure>
 					<ImgPag src={require('../img/sellCar.jpg')}
-					onClick={'aqui vai uma props'}
-					 />
-					    <Button onClick={() => renderPage("sellCar")} variant="contained" color="primary">
-        					Venda seu carro
+						onClick={'aqui vai uma props'}
+					/>
+					<Button onClick={() => renderPage("sellCar")} variant="contained" color="primary">
+						Venda seu carro
      					</Button>
 				</Figure>
-			</WrapperNavegation>			
+			</WrapperNavegation>
 		</WrapperHome>
 	)
 }

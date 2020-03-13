@@ -15,8 +15,8 @@ export default class BuyACar extends Component {
 				titulo: '',
 			},
 			ordenacao: {
-				ordem:'',
-				valorOrdenado:''
+				ordem: '',
+				valorOrdenado: ''
 			}
 		}
 	}
@@ -35,7 +35,7 @@ export default class BuyACar extends Component {
 		this.allCars()
 	}
 
-	modifyFilteredData = (newFilters) => {		
+	modifyFilteredData = (newFilters) => {
 		this.setState({
 			filtros: newFilters
 		})
@@ -54,31 +54,25 @@ export default class BuyACar extends Component {
 				}
 				return Number(car.price) <= Number(filtros.valorMax)
 			})
-			.filter(car => {				
+			.filter(car => {
 				return car.name.toLowerCase().indexOf(filtros.titulo.toLowerCase()) > -1
 			})
 		return filteredCars
 	}
 
 	orderCars = (cars) => {
-		
-		let campoOrdenado 
+		let campoOrdenado
 		let idName = this.state.ordenacao.ordem
-		console.log(idName)	
-		 if(this.state.ordenacao.valorOrdenado === 'high value'){
+
+		if (this.state.ordenacao.valorOrdenado === 'high value') {
 			campoOrdenado = 'price'
-		}
-		else if (this.state.ordenacao.valorOrdenado === 'lower value' ){
+		} else if (this.state.ordenacao.valorOrdenado === 'lower value') {
 			campoOrdenado = 'price'
 			idName = 'ascending order'
-		}
-		else{
+		} else {
 			campoOrdenado = 'name'
 		}
 
-	
-		console.log(campoOrdenado)
-		
 		if (idName === 'ascending order') {
 			const orderData = cars.sort((a, b) => {
 				if (campoOrdenado === 'price') {
@@ -99,23 +93,22 @@ export default class BuyACar extends Component {
 	}
 
 	updateOrder = (e) => {
-		debugger
 		const novoValor = e.target.value
-		if (novoValor === 'high value' || novoValor === 'lower value' ) {
+		if (novoValor === 'high value' || novoValor === 'lower value') {
 			this.setState({
 				ordenacao: {
 					...this.state.ordenacao,
 					valorOrdenado: novoValor
 				}
 			})
-		}else if (novoValor === 'ascending order') {
+		} else if (novoValor === 'ascending order') {
 			this.setState({
 				ordenacao: {
 					...this.state.ordenacao,
 					ordem: novoValor
 				}
 			})
-		}else {
+		} else {
 			this.setState({
 				ordenacao: {
 					ordem: '',
