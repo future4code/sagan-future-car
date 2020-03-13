@@ -24,25 +24,25 @@ class Filtro extends Component {
 			valorMin: event.target.value
 		})
 
-		if (event.target.value) {
-			const dados = (this.state.valorMax.length > 0 || this.state.titulo.length > 0) ? this.state.dataFilter : this.props.dados;
+		if (event.target.value != '') {
+			const dados = (this.state.valorMax != '' || this.state.titulo != '') ? this.state.dataFilter : this.props.data
+
 			const dataFilter = this.filterByMinValue(event.target.value, dados)
-			//console.log(event.target.value)
+			
 			this.props.novosDadosFiltrados(dataFilter)
+
 			this.setState({
-				dataFilter : dados
+				dataFilter
 			})
 
 		} else {
-			console.log(event.target.value.lenght)
-			let dados = this.props.dados
-			console.log('fui executado')
+			let dados = this.props.data
 
-			if (this.state.valorMax.length > 0) {
+			if (this.state.valorMax != '') {
 				dados = this.filterByMaxValue(this.state.valorMax, dados)
 			}
 
-			if (this.state.titulo.length > 0) {
+			if (this.state.titulo != '') {
 				dados = this.filterByTitulo(this.state.titulo, dados)
 			}
 
@@ -59,8 +59,9 @@ class Filtro extends Component {
 			valorMax: event.target.value
 		})
 
-		if (event.target.value && event.target.value.lenght > 0) {
-			const dados = (this.state.valorMin.lenght > 0 || this.state.titulo.lenght > 0) ? this.state.dataFilter : this.state.data
+		if (event.target.value != '') {
+			const dados = (this.state.valorMin != '' || this.state.titulo != '') ? this.state.dataFilter : this.props.data
+		
 			const dataFilter = this.filterByMaxValue(event.target.value, dados)
 
 			this.props.novosDadosFiltrados(dataFilter)
@@ -72,11 +73,11 @@ class Filtro extends Component {
 		} else {
 			let dados = this.props.data
 
-			if (this.state.valorMin.length > 0) {
+			if (this.state.valorMin != '') {
 				dados = this.filterByMinValue(this.state.valorMin, dados)
 			}
 
-			if (this.state.titulo.length > 0) {
+			if (this.state.titulo != '') {
 				dados = this.filterByTitulo(this.state.titulo, dados)
 			}
 
@@ -93,8 +94,8 @@ class Filtro extends Component {
 			titulo: event.target.value
 		})
 
-		if (event.target.value && event.taget.value.length > 0) {
-			const dados = (this.state.valorMin.lenght > 0 || this.state.valorMax > 0) ? this.state.dataFilter : this.state.data
+		if (event.target.value != '') {
+			const dados = (this.state.valorMin != '' || this.state.valorMax != '') ? this.state.dataFilter : this.props.data
 			const dataFilter = this.filterByTitulo(event.target.value, dados)
 
 			this.props.novosDadosFiltrados(dataFilter)
@@ -106,11 +107,11 @@ class Filtro extends Component {
 		} else {
 			let dados = this.props.data
 
-			if (this.state.valorMax.length > 0) {
+			if (this.state.valorMax != '') {
 				dados = this.filterByMaxValue(this.state.valorMax, dados)
 			}
 
-			if (this.state.valorMin.length > 0) {
+			if (this.state.valorMin != '') {
 				dados = this.filterByMinValue(this.state.valorMin, dados)
 			}
 
@@ -123,7 +124,6 @@ class Filtro extends Component {
 	}
 
 	filterByMinValue = (value, data) => {
-		console.log(value,data)
 		return data.filter(dado => {
 			return parseFloat(dado.price) >= parseFloat(value)
 		})
@@ -131,7 +131,7 @@ class Filtro extends Component {
 
 	filterByMaxValue = (value, data) => {
 		return data.filter(dado => {
-			return dado.price <= value
+			return parseFloat(dado.price) <= parseFloat(value)
 		})
 	}
 
